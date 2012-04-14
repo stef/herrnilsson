@@ -9,10 +9,10 @@ You need:
 3. Create a wiki page with the name "Template:Ptheader", and copy the contents of the file template.txt into it.
 4. a registered user on the wiki from step 1 authorized to edit and create pages.
 5. the user credentials for the user from step 2
-#+BEGIN_SRC
-    echo USER='<username>' >password.py
-    echo PASSWORD='<password>' >>password.py
-#+END_SRC
+  #+BEGIN_SRC
+      echo USER='<username>' >password.py
+      echo PASSWORD='<password>' >>password.py
+  #+END_SRC
 6. a python package `pip install wikitools`
 
 Now you should be ready to run the wikibot, try importing one page
