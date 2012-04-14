@@ -1,0 +1,39 @@
+<noinclude>
+This is the 'ptheader' template.
+It should be called in the following format:
+<pre>
+{{ptheader
+|title=
+|reference=
+|src=
+|dossier_of_the_committee=
+|legal_base=
+|responsibles=
+|opinions=
+}}
+</pre>
+Edit the page to see the template text.
+</noinclude><includeonly>
+{| style="width: 30em; font-size: 90%; border: 1px solid #aaaaaa; background-color: #eee; color: black; margin-bottom: 0.5em; margin-left: 1em; padding: 0.2em; float: right; clear: right; text-align:left;"
+! style="text-align: center; background-color:#ccccff;" colspan="2" |<big>{{{reference|}}}</big>
+|-
+! Title
+| {{{title|}}}
+|-
+! Links
+|[http://parltrack.euwiki.org/dossier/{{{reference|}}} parltrack] [{{{src|}}} oeil] [http://www.europarl.europa.eu/RegistreWeb/search/simple.htm?fulltext={{{reference}}} eprod]
+|-
+! Lead committee dossier:
+|  [http://www.europarl.europa.eu/activities/committees/workingDocsCom/comparlDossier.do?dossier={{{dossier_of_the_committee|}}}&amp;body={{{committee|}}}&amp;language=EN {{{dossier_of_the_committee|}}}]
+|-
+! Legal Basis
+| {{{legal_basis|}}}
+|-
+! Rapporteur:
+| {{{responsibles|}}}
+|-
+! Opinions
+| {{{opinions|}}}
+|}
+{{Page variables}}
+</includeonly>
