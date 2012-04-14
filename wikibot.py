@@ -17,8 +17,7 @@
 
 # (C) 2012 by Stefan Marsiske, <stefan.marsiske@gmail.com>
 
-#SITE = "http://localhost/mediawiki/api.php"
-SITE = "http://www.euwiki.org/w/api.php"
+SITE = "http://localhost/mediawiki/api.php"
 # dont forget to create a file containing USER, PASSWORD variables set
 from password import USER,PASSWORD # to access the wiki - user must exist
 
