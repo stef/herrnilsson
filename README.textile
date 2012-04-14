@@ -1,0 +1,38 @@
+HerrNilsson is happy to serve you!
+
+HerrNilsson is a small script that fetches dossiers from htt://parltrack.euwiki.org and creates wikipage stubs in a mediawiki site.
+
+You need:
+
+1. A working mediawiki installation. You can operate your private wiki on your private network!
+
+2. set the wiki API url in wikibot.py (SITE="<url>")
+
+3. Create a wiki page with the name "Template:Ptheader", and copy the contents of the file template.txt into it.
+
+4. a registered user on the wiki from step 1 authorized to edit and create pages.
+
+5. the user credentials for the user from step 2
+
+    echo USER='<username>' >password.py
+    echo PASSWORD='<password>' >>password.py
+
+6. a python package `pip install wikitools`
+
+now you should be ready to run the wikibot, try importing one page
+
+    ./wikibot.py '2011/0167(NLE)'
+
+check out the imported page on your wiki.
+
+if you maintain a list of multiple dossiers, herrnilsson is happy to process them all:
+
+    ./wikibot.py <myfavoritedossiers.txt
+
+where myfavoritedossiers.txt might contain something like:
+
+    2011/0167(NLE)
+    2012/2511(RSP)
+    2011/2884(RSP)
+    2011/0137(COD)
+    2010/0273(COD)
