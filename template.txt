@@ -23,13 +23,13 @@ Edit the page to see the template text.
 ! Links
 |[http://parltrack.euwiki.org/dossier/{{{reference|}}} parltrack] [{{{src|}}} oeil] [http://www.europarl.europa.eu/RegistreWeb/search/simple.htm?fulltext={{{reference}}} eprod]
 |-
-! Lead committee dossier:
+! Lead committee dossier
 |  [http://www.europarl.europa.eu/activities/committees/workingDocsCom/comparlDossier.do?dossier={{{dossier_of_the_committee|}}}&amp;body={{{committee|}}}&amp;language=EN {{{dossier_of_the_committee|}}}]
 |-
 ! Legal Basis
 | {{{legal_basis|}}}
 |-
-! Rapporteur:
+! Rapporteur
 | {{{responsibles|}}}
 |-
 ! Opinions
