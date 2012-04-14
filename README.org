@@ -23,7 +23,7 @@ Now you should be ready to run the wikibot, try importing one page
 
 Check out the imported page on your wiki. here's a screenshot:
 
-[[http://www.ctrlc.hu/~stef/ptwiki.png][freshly imported page]]
+[[http://www.ctrlc.hu/~stef/ptwiki.png]]
 
 if you maintain a list of multiple dossiers, herrnilsson is happy to process them all:
 #+BEGIN_SRC
