@@ -1,6 +1,6 @@
 * HerrNilsson is happy to serve you!
 
-HerrNilsson is a small script that fetches dossiers from htt://parltrack.euwiki.org and creates wikipage stubs in a mediawiki site.
+HerrNilsson is a small script that fetches dossiers from http://parltrack.euwiki.org and creates wikipage stubs in a mediawiki site.
 
 You need:
 
