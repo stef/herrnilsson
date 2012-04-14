@@ -81,7 +81,9 @@ def getMWdata(ref):
     return ('{{ptheader\n%s\n}}' % '\n'.join(vars), dossier)
 
 def savePage(template, dossier):
-    page = wikitools.Page(site,title=dossier['procedure']['reference'])
+    title="%s/%s" % (dossier['procedure']['reference'][-4:-1],
+                     dossier['procedure']['reference'][:9])
+    page = wikitools.Page(site,title=title)
     print page
     res=page.edit(text="%s\nHerr Nilsson is happy" % template,
                   section="0",
