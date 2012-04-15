@@ -5,7 +5,7 @@ HerrNilsson is a small script that fetches dossiers from http://parltrack.euwiki
 You need:
 
  1. A working mediawiki installation. You can operate your private wiki on your private network!
- 2. set the wiki API url in wikibot.py (SITE="<url>")
+ 2. set the wiki API url in herrnilsson.py (SITE="<url>")
  3. Create a wiki page with the name "Template:Ptheader", and copy the contents of the file template.txt into it.
  4. a registered user on the wiki from step 1 authorized to edit and create pages.
  5. the user credentials for the user from step 2
@@ -15,10 +15,10 @@ You need:
    #+END_SRC
  6. a python package `pip install wikitools`
 
-Now you should be ready to run the wikibot, try importing one page
+Now you should be ready to run herrnilsson, try importing one page
 
 #+BEGIN_SRC
- ./wikibot.py '2011/0167(NLE)'
+ ./herrnilsson.py '2011/0167(NLE)'
 #+END_SRC
 
 Check out the imported page on your wiki. here's a screenshot:
@@ -27,7 +27,7 @@ Check out the imported page on your wiki. here's a screenshot:
 
 if you maintain a list of multiple dossiers, herrnilsson is happy to process them all:
 #+BEGIN_SRC
-./wikibot.py <myfavoritedossiers.txt
+./herrnilsson.py <myfavoritedossiers.txt
 #+END_SRC
 
 where myfavoritedossiers.txt might contain something like:
