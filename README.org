@@ -13,7 +13,7 @@ You need:
        echo USER='<username>' >password.py
        echo PASSWORD='<password>' >>password.py
    #+END_SRC
- 6. a python package `pip install wikitools`
+ 6. some python packages `pip install -r requirements.txt`
 
 Now you should be ready to run herrnilsson, try importing one page
 
