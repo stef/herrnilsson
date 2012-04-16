@@ -38,3 +38,5 @@ where myfavoritedossiers.txt might contain something like:
     2011/0137(COD)
     2010/0273(COD)
 #+END_EXAMPLE
+
+if you want to change the data herr nilsson supplies, then edit the template in data.txt, it's pure jinja2 templateing
