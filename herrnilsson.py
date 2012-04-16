@@ -41,50 +41,22 @@ def fetch(url, retries=5, ignore=[], params=None):
             raise
     return f
 
+from jinja2 import Environment, Template, FileSystemLoader
+import os
 def getMWdata(ref):
-    dossier=fetch("http://parltrack.euwiki.org/dossier/%s?format=json" % ref)
-    dossier=json.load(dossier)
-
-    vars=[
-        '|title=%s' % dossier['procedure']['title'],
-        '|titlesafe=%s' % dossier['procedure']['title'].replace(' ',"+"),
-        '|reference=%s' % dossier['procedure']['reference'],
-        '|src=%s' % dossier['meta']['source'],
-    ]
-    if 'finalref' in dossier:
-        vars.append('|finalref=%s' % dossier['finalref'])
-    if 'dossier_of_the_committee' in dossier['procedure']:
-        vars.append('|dossier_of_the_committee=%s' % dossier['procedure']['dossier_of_the_committee'])
-    if 'legal_basis' in dossier['procedure']:
-        vars.append('|legal_basis=%s' % ', '.join([sub for sub in dossier['procedure']['legal_basis']]))
-
-    template="%s: [http://parltrack.euwiki.org/mep/%s#dossiers %s] [http://parltrack.euwiki.org/mep/%s %s]"
-    vars.append("|responsibles=%s" % ', '.join(
-        [template % (committee['committee'],
-                     a['name'].replace(" ",'+'),
-                     a['name'],
-                     a['group'].replace(" ",'+'),
-                     a['group'])
-         for committee in dossier['committees']
-         if committee['responsible']
-         for a in committee['rapporteur']]))
-    vars.append("|opinions=%s" % ', '.join(
-        [template % (committee['committee'],
-                     a['name'].replace(" ",'+'),
-                     a['name'],
-                     a['group'].replace(" ",'+'),
-                     a['group'])
-         for committee in dossier['committees']
-         if not committee['responsible']
-         for a in committee.get('rapporteur',[])]))
-
-    return ('{{ptheader\n%s\n}}' % '\n'.join(vars), dossier)
+    url="http://parltrack.euwiki.org/dossier/%s?format=json" % ref
+    print url
+    dossier=json.load(fetch(url))
+    env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
+    t = env.get_template('data.txt')
+    return (t.render(dossier=dossier), dossier)
 
 def savePage(template, dossier):
     title="%s/%s" % (dossier['procedure']['reference'][-4:-1],
                      dossier['procedure']['reference'][:9])
     page = wikitools.Page(site,title=title)
     print page
+    print template
     res=page.edit(text="%s\nHerr Nilsson is happy" % template,
                   section="0",
                   bot=True,
