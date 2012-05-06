@@ -17,9 +17,8 @@
 
 # (C) 2012 by Stefan Marsiske, <stefan.marsiske@gmail.com>
 
-SITE = "http://localhost/mediawiki/api.php"
 # dont forget to create a file containing USER, PASSWORD variables set
-from password import USER,PASSWORD # to access the wiki - user must exist
+from config import SITE,USER,PASSWORD # to access the wiki - user must exist
 
 import urllib2, time, sys, json, wikitools, re
 
@@ -43,10 +42,13 @@ def fetch(url, retries=5, ignore=[], params=None):
 
 from jinja2 import Environment, Template, FileSystemLoader
 import os
-def getMWdata(ref):
+def getdata(ref):
     url="http://parltrack.euwiki.org/dossier/%s?format=json" % ref
     print url
     dossier=json.load(fetch(url))
+    return getMWdata(dossier)
+
+def getMWdata(dossier):
     env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
     t = env.get_template('data.txt')
     return (t.render(dossier=dossier), dossier)
@@ -55,8 +57,8 @@ def savePage(template, dossier):
     title="%s/%s" % (dossier['procedure']['reference'][-4:-1],
                      dossier['procedure']['reference'][:9])
     page = wikitools.Page(site,title=title)
-    print page
-    print template
+    #print page
+    #print template
     res=page.edit(text="%s\nHerr Nilsson is happy" % template,
                   section="0",
                   bot=True,
@@ -70,11 +72,18 @@ print site
 
 if len(sys.argv)>1:
     # process 1st param as reference
-    savePage(*getMWdata(sys.argv[1]))
+    res=epre.match(sys.argv[1])
+    if res:
+        savePage(*getdata(sys.argv[1]))
+    else:
+        raw=fetch('http://parltrack.euwiki.org/notification/%s?format=json' % sys.argv[1] )
+        for doc in json.load(raw)['dossiers']:
+            print doc['procedure']['reference']
+            savePage(*getMWdata(doc))
 else:
     # process stdin
     for line in sys.stdin.readlines():
         print 'updating line', line
         res=epre.match(line)
         if res:
-            savePage(*getMWdata(line.strip()))
+            savePage(*getdata(line.strip()))
