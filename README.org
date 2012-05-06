@@ -5,15 +5,15 @@ HerrNilsson is a small script that fetches dossiers from http://parltrack.euwiki
 You need:
 
  1. A working mediawiki installation. You can operate your private wiki on your private network!
- 2. set the wiki API url in herrnilsson.py (SITE="<url>")
- 3. Create a wiki page with the name "Template:Ptheader", and copy the contents of the file template.txt into it.
- 4. a registered user on the wiki from step 1 authorized to edit and create pages.
- 5. the user credentials for the user from step 2
+ 2. Create a wiki page with the name "Template:Ptheader", and copy the contents of the file template.txt into it.
+ 3. a registered user on the wiki from step 1 authorized to edit and create pages.
+ 4. the user credentials and the site for the user from step 2
    #+BEGIN_SRC
-       echo USER='<username>' >password.py
-       echo PASSWORD='<password>' >>password.py
+       echo SITE='<mediawiki url>' >config.py
+       echo USER='<username>' >>config.py
+       echo PASSWORD='<password>' >>config.py
    #+END_SRC
- 6. some python packages `pip install -r requirements.txt`
+ 5. some python packages `pip install -r requirements.txt`
 
 Now you should be ready to run herrnilsson, try importing one page
 
@@ -39,4 +39,10 @@ where myfavoritedossiers.txt might contain something like:
     2010/0273(COD)
 #+END_EXAMPLE
 
-if you want to change the data herr nilsson supplies, then edit the template in data.txt, it's pure jinja2 templateing
+    if you want to change the data herr nilsson supplies, then edit the template in data.txt, it's pure jinja2 templateing
+
+you can also import all dossiers from notification groups
+#+BEGIN_SRC
+./herrnilsson.py acta
+#+END_SRC
+
