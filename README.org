@@ -5,6 +5,7 @@ HerrNilsson is a small script that fetches dossiers from http://parltrack.euwiki
 You need:
 
  1. A working mediawiki installation. You can operate your private wiki on your private network!
+    Please also enable https://www.mediawiki.org/wiki/Extension:StringFunctions in your mediawiki
  2. Create a wiki page with the name "Template:Ptheader", and copy the contents of the file template.txt into it.
  3. a registered user on the wiki from step 1 authorized to edit and create pages.
  4. the user credentials and the site for the user from step 2
@@ -12,6 +13,7 @@ You need:
        echo SITE='<mediawiki url>' >config.py
        echo USER='<username>' >>config.py
        echo PASSWORD='<password>' >>config.py
+       echo PREFIX='EP:' >>config.py
    #+END_SRC
  5. some python packages `pip install -r requirements.txt`
 

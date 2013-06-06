@@ -18,7 +18,7 @@
 # (C) 2012 by Stefan Marsiske, <stefan.marsiske@gmail.com>
 
 # dont forget to create a file containing USER, PASSWORD variables set
-from config import SITE,USER,PASSWORD # to access the wiki - user must exist
+from config import SITE,USER,PASSWORD, PREFIX # to access the wiki - user must exist
 
 import urllib2, time, sys, json, wikitools, re
 
@@ -54,8 +54,13 @@ def getMWdata(dossier):
     return (t.render(dossier=dossier), dossier)
 
 def savePage(template, dossier):
-    title="%s/%s" % (dossier['procedure']['reference'][-4:-1],
-                     dossier['procedure']['reference'][:9])
+    site = wikitools.wiki.Wiki(SITE)
+    site.login(USER, password=PASSWORD)
+    print site
+
+    title="%s%s/%s" % (PREFIX, dossier['procedure']['reference'][-4:-1],
+                        dossier['procedure']['reference'][:9])
+    print 'saving', title
     page = wikitools.Page(site,title=title)
     #print page
     #print template
@@ -65,10 +70,6 @@ def savePage(template, dossier):
                   skipmd5=True)
     print res
     #print page.getWikiText(force=True)
-
-site = wikitools.wiki.Wiki(SITE)
-site.login(USER, password=PASSWORD)
-print site
 
 if len(sys.argv)>1:
     # process 1st param as reference
