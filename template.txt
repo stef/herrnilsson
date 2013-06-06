@@ -24,7 +24,7 @@ Edit the page to see the template text.
 |[http://parltrack.euwiki.org/dossier/{{{reference|}}} parltrack] [{{{src|}}} oeil] [http://www.europarl.europa.eu/RegistreWeb/search/simple.htm?fulltext={{{reference}}} eprod]
 |-
 ! Lead committee dossier
-|  [http://www.europarl.europa.eu/activities/committees/workingDocsCom/comparlDossier.do?dossier={{{dossier_of_the_committee|}}}&amp;body={{{committee|}}}&amp;language=EN {{{dossier_of_the_committee|}}}]
+| [http://www.europarl.europa.eu/committees/en/libe/documents-search.html?linkedDocument=true&ufolderComCode={{#explode: {{{dossier_of_the_committee}}}|/|0}}&ufolderLegId={{#explode: {{{dossier_of_the_committee}}}|/|1}}&ufolderId={{#explode: {{{dossier_of_the_committee}}}|/|2}}&urefProcYear=&urefProcNum=&urefProcCode= {{{dossier_of_the_committee|}}}]
 |-
 ! Legal Basis
 | {{{legal_basis|}}}
