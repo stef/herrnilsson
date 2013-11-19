@@ -32,8 +32,17 @@ Edit the page to see the template text.
 ! Rapporteur
 | {{{responsibles|}}}
 |-
+! Stage reached
+| {{{stagereached}}}
+|-
 ! Opinions
 | {{{opinions|}}}
+|-
+! Type/Subtype
+| {{{type|}}}/{{{subtype|}}}
+|-
+! Area
+| {{{area|}}}
 |}
 {{Page variables}}
 </includeonly>

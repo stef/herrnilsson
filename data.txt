@@ -8,4 +8,12 @@
 |legal_basis={{dossier.procedure.legal_basis|join(', ')}}
 |responsibles={% for committee in dossier.committees if committee.responsible %}{% for a in committee.rapporteur %}{{committee.committee}}: [http://parltrack.euwiki.org/mep/{{a.name|replace(' ', '+')}}#dossiers {{a.name}}] [http://parltrack.euwiki.org/mep/{{a.group|replace(' ','+')}} {{a.group}}]{%endfor%}{%endfor%}
 |opinions={% for committee in dossier.committees if not committee.responsible %}{% for a in committee.rapporteur %}{{committee.committee}}: [http://parltrack.euwiki.org/mep/{{a.name|replace(' ', '+')}}#dossiers {{a.name}}] [http://parltrack.euwiki.org/mep/{{a.group|replace(' ','+')}} {{a.group}}]{%endfor%}{%endfor%}
+|stagereached={{dossier.procedure.stage_reached}}
+|type={{dossier.procedure.type}}
+|subtype={{dossier.procedure.subtype}}
+|area={% for area in dossier.procedure.area %}{{area}}{% endfor %}
 }}
+
+{% for categorie in dossier.procedure.subject %}[[Kategorie:{{categorie}}|{{categorie}}]]{% endfor %}
+
+[[Kategorie:Import Herrnillson]]
