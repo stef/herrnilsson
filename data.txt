@@ -16,4 +16,4 @@
 
 {% for categorie in dossier.procedure.subject %}[[Kategorie:{{categorie}}|{{categorie}}]]{% endfor %}
 
-[[Kategorie:Import Herrnillson]]
+[[Category: HerrNillson is happy to work for you !]]
