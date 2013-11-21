@@ -58,13 +58,12 @@ def savePage(template, dossier):
     site.login(USER, password=PASSWORD)
     print site
 
-    title="%s%s/%s" % (PREFIX, dossier['procedure']['reference'][-4:-1],
-                        dossier['procedure']['reference'][:9])
+    title="%s%s" % (PREFIX, dossier['procedure']['title'])
     print 'saving', title
     page = wikitools.Page(site,title=title)
     #print page
     #print template
-    res=page.edit(text="%s\nHerr Nilsson is happy" % template,
+    res=page.edit(text="%s" % template,
                   section="0",
                   bot=True,
                   skipmd5=True)
